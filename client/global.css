@@ -41,9 +41,9 @@
 
     --radius: 8px;
 
-    /* Neon accent (subtle green) */
-    --neon: 120 100% 75%;
-    --neon-dim: 120 50% 50%;
+    /* Neon accent (robin's egg blue) */
+    --neon: 185 80% 65%;
+    --neon-dim: 185 60% 45%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 2%;
