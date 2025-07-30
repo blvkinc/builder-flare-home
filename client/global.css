@@ -70,4 +70,149 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Enhanced cursor interactions */
+  * {
+    cursor: inherit;
+  }
+
+  button, a, [role="button"] {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  button:hover, a:hover, [role="button"]:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Subtle animations for all interactive elements */
+  .animate-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(120, 255, 120, 0.1);
+  }
+
+  /* Smooth focus states */
+  input:focus, textarea:focus, [role="textbox"]:focus {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Enhanced scroll animations */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes neonGlow {
+    0%, 100% {
+      text-shadow: 0 0 5px hsl(var(--neon)), 0 0 10px hsl(var(--neon)), 0 0 15px hsl(var(--neon));
+    }
+    50% {
+      text-shadow: 0 0 10px hsl(var(--neon)), 0 0 20px hsl(var(--neon)), 0 0 30px hsl(var(--neon));
+    }
+  }
+
+  .animate-slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  .animate-neon-glow {
+    animation: neonGlow 2s ease-in-out infinite;
+  }
+
+  /* Loading states */
+  .loading-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(120, 255, 120, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--neon));
+  }
+
+  /* Selection styling */
+  ::selection {
+    background: hsl(var(--neon) / 0.2);
+    color: hsl(var(--foreground));
+  }
 }
