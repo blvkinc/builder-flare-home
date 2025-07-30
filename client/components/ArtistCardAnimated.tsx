@@ -37,49 +37,61 @@ export function ArtistCardAnimated({
     if (!card || !avatarEl || !stats) return;
 
     const handleMouseEnter = () => {
-      gsap.to(card, {
-        y: -6,
-        scale: 1.02,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-      
-      gsap.to(avatarEl, {
-        scale: 1.1,
-        rotation: 2,
-        duration: 0.4,
-        ease: "power2.out"
-      });
+      if (card) {
+        gsap.to(card, {
+          y: -6,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
 
-      gsap.to(stats.children, {
-        y: -3,
-        duration: 0.3,
-        stagger: 0.05,
-        ease: "power2.out"
-      });
+      if (avatarEl) {
+        gsap.to(avatarEl, {
+          scale: 1.1,
+          rotation: 2,
+          duration: 0.4,
+          ease: "power2.out"
+        });
+      }
+
+      if (stats && stats.children.length > 0) {
+        gsap.to(stats.children, {
+          y: -3,
+          duration: 0.3,
+          stagger: 0.05,
+          ease: "power2.out"
+        });
+      }
     };
 
     const handleMouseLeave = () => {
-      gsap.to(card, {
-        y: 0,
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-      
-      gsap.to(avatarEl, {
-        scale: 1,
-        rotation: 0,
-        duration: 0.4,
-        ease: "power2.out"
-      });
+      if (card) {
+        gsap.to(card, {
+          y: 0,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
 
-      gsap.to(stats.children, {
-        y: 0,
-        duration: 0.3,
-        stagger: 0.05,
-        ease: "power2.out"
-      });
+      if (avatarEl) {
+        gsap.to(avatarEl, {
+          scale: 1,
+          rotation: 0,
+          duration: 0.4,
+          ease: "power2.out"
+        });
+      }
+
+      if (stats && stats.children.length > 0) {
+        gsap.to(stats.children, {
+          y: 0,
+          duration: 0.3,
+          stagger: 0.05,
+          ease: "power2.out"
+        });
+      }
     };
 
     card.addEventListener('mouseenter', handleMouseEnter);
