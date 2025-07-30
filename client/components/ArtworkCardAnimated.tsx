@@ -41,60 +41,76 @@ export function ArtworkCardAnimated({
     if (!card || !image || !overlay || !stats) return;
 
     const handleMouseEnter = () => {
-      gsap.to(card, {
-        y: -8,
-        scale: 1.02,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-      
-      gsap.to(image, {
-        scale: 1.1,
-        duration: 0.6,
-        ease: "power2.out"
-      });
+      if (card) {
+        gsap.to(card, {
+          y: -8,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
 
-      gsap.to(overlay, {
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      if (image) {
+        gsap.to(image, {
+          scale: 1.1,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
 
-      gsap.to(stats, {
-        opacity: 1,
-        y: 0,
-        duration: 0.3,
-        ease: "power2.out",
-        delay: 0.1
-      });
+      if (overlay) {
+        gsap.to(overlay, {
+          opacity: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
+
+      if (stats) {
+        gsap.to(stats, {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out",
+          delay: 0.1
+        });
+      }
     };
 
     const handleMouseLeave = () => {
-      gsap.to(card, {
-        y: 0,
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-      
-      gsap.to(image, {
-        scale: 1,
-        duration: 0.6,
-        ease: "power2.out"
-      });
+      if (card) {
+        gsap.to(card, {
+          y: 0,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
 
-      gsap.to(overlay, {
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      if (image) {
+        gsap.to(image, {
+          scale: 1,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
 
-      gsap.to(stats, {
-        opacity: 0,
-        y: 10,
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      if (overlay) {
+        gsap.to(overlay, {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
+
+      if (stats) {
+        gsap.to(stats, {
+          opacity: 0,
+          y: 10,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
     };
 
     card.addEventListener('mouseenter', handleMouseEnter);
