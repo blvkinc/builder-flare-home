@@ -63,6 +63,21 @@ export default {
         neon: {
           DEFAULT: "hsl(var(--neon))",
           dim: "hsl(var(--neon-dim))",
+          50: "hsl(185, 80%, 95%)",
+          100: "hsl(185, 80%, 85%)",
+          200: "hsl(185, 80%, 75%)",
+          300: "hsl(185, 80%, 65%)",
+          400: "hsl(185, 80%, 55%)",
+          500: "hsl(185, 80%, 45%)",
+          600: "hsl(185, 70%, 35%)",
+          700: "hsl(185, 60%, 25%)",
+          800: "hsl(185, 50%, 15%)",
+          900: "hsl(185, 40%, 10%)",
+        },
+        blue: {
+          neon: "hsl(var(--neon))",
+          dim: "hsl(var(--neon-dim))",
+          glow: "hsl(185, 90%, 70%)",
         },
       },
       borderRadius: {
