@@ -45,6 +45,11 @@
     --neon: 185 80% 65%;
     --neon-dim: 185 60% 45%;
 
+    /* Additional blue theme colors */
+    --blue-glow: 185 90% 70%;
+    --blue-subtle: 185 50% 85%;
+    --blue-dark: 185 40% 25%;
+
     /* Sidebar */
     --sidebar-background: 0 0% 2%;
     --sidebar-foreground: 0 0% 90%;
@@ -148,10 +153,10 @@
 
   @keyframes neonGlow {
     0%, 100% {
-      text-shadow: 0 0 5px hsl(var(--neon)), 0 0 10px hsl(var(--neon)), 0 0 15px hsl(var(--neon));
+      text-shadow: 0 0 5px hsl(var(--neon)), 0 0 10px hsl(var(--neon)), 0 0 15px hsl(var(--neon)), 0 0 20px hsl(var(--blue-glow));
     }
     50% {
-      text-shadow: 0 0 10px hsl(var(--neon)), 0 0 20px hsl(var(--neon)), 0 0 30px hsl(var(--neon));
+      text-shadow: 0 0 10px hsl(var(--neon)), 0 0 20px hsl(var(--neon)), 0 0 30px hsl(var(--neon)), 0 0 40px hsl(var(--blue-glow));
     }
   }
 
