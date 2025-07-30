@@ -14,7 +14,9 @@ export default function Dashboard() {
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center space-y-6">
             <div className="space-y-2">
-              <h1 className="text-2xl font-semibold text-foreground">Access Required</h1>
+              <h1 className="text-2xl font-semibold text-foreground">
+                Access Required
+              </h1>
               <p className="text-muted-foreground">
                 Please sign in to access your dashboard
               </p>

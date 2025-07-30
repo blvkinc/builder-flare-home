@@ -22,36 +22,38 @@ export function ArtworkCard({
   imageUrl,
   likes = 0,
   views = 0,
-  isLiked = false
+  isLiked = false,
 }: ArtworkCardProps) {
   const [liked, setLiked] = useState(isLiked);
   const [likeCount, setLikeCount] = useState(likes);
 
   const handleLike = () => {
     setLiked(!liked);
-    setLikeCount(prev => liked ? prev - 1 : prev + 1);
+    setLikeCount((prev) => (liked ? prev - 1 : prev + 1));
   };
 
   return (
     <div className="group relative bg-card rounded-lg overflow-hidden border border-border hover:border-border/60 transition-all duration-300 hover:scale-[1.02]">
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-muted">
-        <img 
-          src={imageUrl} 
+        <img
+          src={imageUrl}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        
+
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="flex items-center space-x-4">
-            <Button 
-              variant="secondary" 
+            <Button
+              variant="secondary"
               size="sm"
               onClick={handleLike}
               className="bg-background/90 hover:bg-background"
             >
-              <Heart className={`w-4 h-4 ${liked ? 'fill-red-500 text-red-500' : ''}`} />
+              <Heart
+                className={`w-4 h-4 ${liked ? "fill-red-500 text-red-500" : ""}`}
+              />
             </Button>
             <Button variant="default" size="sm" asChild>
               <Link to={`/artwork/${id}`}>View Details</Link>
@@ -77,11 +79,19 @@ export function ArtworkCard({
         <div className="space-y-1">
           <h3 className="font-medium text-foreground line-clamp-1">{title}</h3>
           <p className="text-sm text-muted-foreground">
-            by <Link to={`/artist/${artist.toLowerCase().replace(/\s+/g, '')}`} className="hover:text-foreground transition-colors">{artist}</Link>
+            by{" "}
+            <Link
+              to={`/artist/${artist.toLowerCase().replace(/\s+/g, "")}`}
+              className="hover:text-foreground transition-colors"
+            >
+              {artist}
+            </Link>
           </p>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-lg font-semibold text-foreground">${price}</span>
+          <span className="text-lg font-semibold text-foreground">
+            ${price}
+          </span>
           <Button variant="outline" size="sm" className="text-xs">
             Buy Now
           </Button>

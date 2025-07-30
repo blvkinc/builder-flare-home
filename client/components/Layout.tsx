@@ -9,9 +9,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <NavigationAnimated />
-      <main className="pt-16">
-        {children}
-      </main>
+      <main className="pt-16">{children}</main>
     </div>
   );
 }

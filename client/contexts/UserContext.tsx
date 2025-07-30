@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 export type UserRole = "buyer" | "artist";
 
@@ -19,7 +25,12 @@ interface UserContextType {
   user: User | null;
   isAuthenticated: boolean;
   login: (email: string, password: string, role: UserRole) => Promise<boolean>;
-  signup: (name: string, email: string, password: string, role: UserRole) => Promise<boolean>;
+  signup: (
+    name: string,
+    email: string,
+    password: string,
+    role: UserRole,
+  ) => Promise<boolean>;
   logout: () => void;
   updateProfile: (updates: Partial<User>) => void;
   switchRole: (newRole: UserRole) => void;
@@ -42,23 +53,33 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const login = async (email: string, password: string, role: UserRole): Promise<boolean> => {
+  const login = async (
+    email: string,
+    password: string,
+    role: UserRole,
+  ): Promise<boolean> => {
     // Mock authentication - in real app this would call an API
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       const mockUser: User = {
         id: Math.random().toString(36).substr(2, 9),
         name: email.split("@")[0],
         email,
         avatar: `https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face`,
         role,
-        bio: role === "artist" ? "Digital artist creating futuristic art" : "Art collector and enthusiast",
-        followers: role === "artist" ? Math.floor(Math.random() * 10000) : undefined,
+        bio:
+          role === "artist"
+            ? "Digital artist creating futuristic art"
+            : "Art collector and enthusiast",
+        followers:
+          role === "artist" ? Math.floor(Math.random() * 10000) : undefined,
         following: Math.floor(Math.random() * 100),
-        totalSales: role === "artist" ? Math.floor(Math.random() * 50) : undefined,
-        artworkCount: role === "artist" ? Math.floor(Math.random() * 25) : undefined,
+        totalSales:
+          role === "artist" ? Math.floor(Math.random() * 50) : undefined,
+        artworkCount:
+          role === "artist" ? Math.floor(Math.random() * 25) : undefined,
       };
 
       setUser(mockUser);
@@ -69,18 +90,26 @@ export function UserProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const signup = async (name: string, email: string, password: string, role: UserRole): Promise<boolean> => {
+  const signup = async (
+    name: string,
+    email: string,
+    password: string,
+    role: UserRole,
+  ): Promise<boolean> => {
     // Mock signup - in real app this would call an API
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       const mockUser: User = {
         id: Math.random().toString(36).substr(2, 9),
         name,
         email,
         avatar: `https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face`,
         role,
-        bio: role === "artist" ? "New digital artist on Avt" : "New art collector on Avt",
+        bio:
+          role === "artist"
+            ? "New digital artist on Avt"
+            : "New art collector on Avt",
         followers: 0,
         following: 0,
         totalSales: 0,

@@ -1,10 +1,24 @@
 import { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Search, User, ShoppingBag, LogOut, Settings, Palette, Ban } from "lucide-react";
+import {
+  Search,
+  User,
+  ShoppingBag,
+  LogOut,
+  Settings,
+  Palette,
+  Ban,
+} from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
 import { gsap } from "gsap";
 
@@ -27,55 +41,64 @@ export function NavigationAnimated() {
     if (!nav || !logo || !search || !links) return;
 
     // Initial animation on mount
-    gsap.fromTo(nav, 
+    gsap.fromTo(
+      nav,
       { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
     );
 
-    gsap.fromTo([logo, search, links.children],
+    gsap.fromTo(
+      [logo, search, links.children],
       { y: -20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out", delay: 0.3 }
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        delay: 0.3,
+      },
     );
 
     // Logo hover animation
     const handleLogoHover = () => {
-      const logoIcon = logo.querySelector('.logo-icon');
-      const logoText = logo.querySelector('.logo-text');
+      const logoIcon = logo.querySelector(".logo-icon");
+      const logoText = logo.querySelector(".logo-text");
 
       if (logoIcon) {
         gsap.to(logoIcon, {
           rotation: 360,
           duration: 0.6,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       }
 
       if (logoText) {
-        logoText.classList.add('text-neon');
-        logoText.classList.remove('text-foreground');
+        logoText.classList.add("text-neon");
+        logoText.classList.remove("text-foreground");
       }
     };
 
     const handleLogoLeave = () => {
-      const logoText = logo.querySelector('.logo-text');
+      const logoText = logo.querySelector(".logo-text");
 
       if (logoText) {
-        logoText.classList.remove('text-neon');
-        logoText.classList.add('text-foreground');
+        logoText.classList.remove("text-neon");
+        logoText.classList.add("text-foreground");
       }
     };
 
-    logo.addEventListener('mouseenter', handleLogoHover);
-    logo.addEventListener('mouseleave', handleLogoLeave);
+    logo.addEventListener("mouseenter", handleLogoHover);
+    logo.addEventListener("mouseleave", handleLogoLeave);
 
     // Search focus animation
-    const searchInput = search.querySelector('input');
+    const searchInput = search.querySelector("input");
     if (searchInput) {
       const handleSearchFocus = () => {
         gsap.to(search, {
           scale: 1.02,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       };
 
@@ -83,24 +106,24 @@ export function NavigationAnimated() {
         gsap.to(search, {
           scale: 1,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       };
 
-      searchInput.addEventListener('focus', handleSearchFocus);
-      searchInput.addEventListener('blur', handleSearchBlur);
+      searchInput.addEventListener("focus", handleSearchFocus);
+      searchInput.addEventListener("blur", handleSearchBlur);
 
       return () => {
-        logo.removeEventListener('mouseenter', handleLogoHover);
-        logo.removeEventListener('mouseleave', handleLogoLeave);
-        searchInput.removeEventListener('focus', handleSearchFocus);
-        searchInput.removeEventListener('blur', handleSearchBlur);
+        logo.removeEventListener("mouseenter", handleLogoHover);
+        logo.removeEventListener("mouseleave", handleLogoLeave);
+        searchInput.removeEventListener("focus", handleSearchFocus);
+        searchInput.removeEventListener("blur", handleSearchBlur);
       };
     }
 
     return () => {
-      logo.removeEventListener('mouseenter', handleLogoHover);
-      logo.removeEventListener('mouseleave', handleLogoLeave);
+      logo.removeEventListener("mouseenter", handleLogoHover);
+      logo.removeEventListener("mouseleave", handleLogoLeave);
     };
   }, []);
 
@@ -109,19 +132,28 @@ export function NavigationAnimated() {
   };
 
   return (
-    <nav 
+    <nav
       ref={navRef}
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" ref={logoRef} className="flex items-center space-x-2 group">
+          <Link
+            to="/"
+            ref={logoRef}
+            className="flex items-center space-x-2 group"
+          >
             <div className="logo-icon w-8 h-8 bg-neon rounded-sm flex items-center justify-center">
               <span className="text-black font-bold text-sm">A</span>
             </div>
-            <span className="logo-text text-xl font-semibold text-foreground transition-colors">Avt</span>
-            <Badge variant="outline" className="hidden sm:flex border-neon/50 text-neon text-xs">
+            <span className="logo-text text-xl font-semibold text-foreground transition-colors">
+              Avt
+            </span>
+            <Badge
+              variant="outline"
+              className="hidden sm:flex border-neon/50 text-neon text-xs"
+            >
               <Ban className="w-2 h-2 mr-1" />
               No AI
             </Badge>
@@ -158,7 +190,9 @@ export function NavigationAnimated() {
                 <Link
                   to="/dashboard"
                   className={`text-sm font-medium transition-all duration-300 hover:text-neon hover:scale-105 ${
-                    isActive("/dashboard") ? "text-neon" : "text-muted-foreground"
+                    isActive("/dashboard")
+                      ? "text-neon"
+                      : "text-muted-foreground"
                   }`}
                 >
                   Dashboard
@@ -166,7 +200,9 @@ export function NavigationAnimated() {
                 <Link
                   to="/verification"
                   className={`text-sm font-medium transition-all duration-300 hover:text-neon hover:scale-105 ${
-                    isActive("/verification") ? "text-neon" : "text-muted-foreground"
+                    isActive("/verification")
+                      ? "text-neon"
+                      : "text-muted-foreground"
                   }`}
                 >
                   Verification
@@ -187,20 +223,29 @@ export function NavigationAnimated() {
                 />
               </div>
             </div>
-            
+
             {isAuthenticated ? (
               <>
-                <Button variant="ghost" size="sm" className="hover:bg-neon/10 hover:text-neon transition-colors">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hover:bg-neon/10 hover:text-neon transition-colors"
+                >
                   <ShoppingBag className="w-4 h-4" />
                 </Button>
-                
+
                 {/* User Menu */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="relative h-8 w-8 rounded-full hover:scale-110 transition-transform">
+                    <Button
+                      variant="ghost"
+                      className="relative h-8 w-8 rounded-full hover:scale-110 transition-transform"
+                    >
                       <Avatar className="h-8 w-8">
                         <AvatarImage src={user?.avatar} alt={user?.name} />
-                        <AvatarFallback className="bg-neon text-black">{user?.name?.charAt(0)}</AvatarFallback>
+                        <AvatarFallback className="bg-neon text-black">
+                          {user?.name?.charAt(0)}
+                        </AvatarFallback>
                       </Avatar>
                     </Button>
                   </DropdownMenuTrigger>
@@ -211,8 +256,13 @@ export function NavigationAnimated() {
                         <p className="w-[200px] truncate text-sm text-muted-foreground">
                           {user?.email}
                         </p>
-                        <Badge variant="outline" className="w-fit border-neon/50 text-neon text-xs">
-                          {user?.role === "artist" ? "Verified Artist" : "Collector"}
+                        <Badge
+                          variant="outline"
+                          className="w-fit border-neon/50 text-neon text-xs"
+                        >
+                          {user?.role === "artist"
+                            ? "Verified Artist"
+                            : "Collector"}
                         </Badge>
                       </div>
                     </div>
@@ -240,7 +290,12 @@ export function NavigationAnimated() {
                 </DropdownMenu>
               </>
             ) : (
-              <Button asChild variant="default" size="sm" className="bg-neon text-black hover:bg-neon/90 hover:scale-105 transition-all">
+              <Button
+                asChild
+                variant="default"
+                size="sm"
+                className="bg-neon text-black hover:bg-neon/90 hover:scale-105 transition-all"
+              >
                 <Link to="/auth">Join Avt</Link>
               </Button>
             )}

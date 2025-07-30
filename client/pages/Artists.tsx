@@ -3,65 +3,77 @@ import { ArtistCard } from "@/components/ArtistCard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Search, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 const featuredArtists = [
   {
     name: "CyberArt",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
     bio: "Digital artist specializing in cyberpunk and futuristic aesthetics",
     followers: 12500,
     totalSales: 89,
     artworkCount: 24,
-    isFollowing: false
+    isFollowing: false,
   },
   {
     name: "VoidMaster",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b776?w=100&h=100&fit=crop&crop=face",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b776?w=100&h=100&fit=crop&crop=face",
     bio: "Abstract digital compositions exploring the void between reality and dreams",
     followers: 8900,
     totalSales: 67,
     artworkCount: 31,
-    isFollowing: false
+    isFollowing: false,
   },
   {
     name: "QuantumAI",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
     bio: "AI-assisted generative art pushing the boundaries of digital creativity",
     followers: 15200,
     totalSales: 123,
     artworkCount: 42,
-    isFollowing: false
+    isFollowing: false,
   },
   {
     name: "MetroDesign",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
     bio: "Urban-inspired digital art and futuristic cityscape designs",
     followers: 9800,
     totalSales: 76,
     artworkCount: 28,
-    isFollowing: false
+    isFollowing: false,
   },
   {
     name: "HoloVision",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
     bio: "Creating immersive holographic-style digital art experiences",
     followers: 11300,
     totalSales: 94,
     artworkCount: 35,
-    isFollowing: false
+    isFollowing: false,
   },
   {
     name: "NeonStorm",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
     bio: "Vibrant neon aesthetics merged with storm-like energy patterns",
     followers: 7600,
     totalSales: 52,
     artworkCount: 19,
-    isFollowing: false
-  }
+    isFollowing: false,
+  },
 ];
 
 export default function Artists() {
@@ -69,9 +81,10 @@ export default function Artists() {
   const [sortBy, setSortBy] = useState("followers");
 
   const filteredArtists = featuredArtists
-    .filter(artist =>
-      artist.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      artist.bio.toLowerCase().includes(searchQuery.toLowerCase())
+    .filter(
+      (artist) =>
+        artist.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        artist.bio.toLowerCase().includes(searchQuery.toLowerCase()),
     )
     .sort((a, b) => {
       switch (sortBy) {
@@ -97,9 +110,13 @@ export default function Artists() {
                 Verified Human Artists
               </Badge>
             </div>
-            <h1 className="text-3xl font-bold text-foreground mb-4">Featured Human Artists</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-4">
+              Featured Human Artists
+            </h1>
             <p className="text-muted-foreground text-lg">
-              Discover and follow verified human digital artists on Avt. Each creator is personally verified to ensure authentic human creativity.
+              Discover and follow verified human digital artists on Avt. Each
+              creator is personally verified to ensure authentic human
+              creativity.
             </p>
           </div>
 
@@ -129,7 +146,8 @@ export default function Artists() {
           {/* Results */}
           <div className="mb-6">
             <p className="text-muted-foreground">
-              {filteredArtists.length} artist{filteredArtists.length !== 1 ? 's' : ''} found
+              {filteredArtists.length} artist
+              {filteredArtists.length !== 1 ? "s" : ""} found
             </p>
           </div>
 
@@ -145,7 +163,9 @@ export default function Artists() {
               <div className="w-16 h-16 bg-muted rounded-lg mx-auto flex items-center justify-center mb-4">
                 <Search className="w-8 h-8 text-muted-foreground" />
               </div>
-              <h3 className="text-lg font-medium text-foreground mb-2">No artists found</h3>
+              <h3 className="text-lg font-medium text-foreground mb-2">
+                No artists found
+              </h3>
               <p className="text-muted-foreground mb-4">
                 Try adjusting your search terms
               </p>

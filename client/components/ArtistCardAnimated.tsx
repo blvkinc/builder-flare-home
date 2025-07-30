@@ -15,15 +15,15 @@ interface ArtistCardProps {
   verified?: boolean;
 }
 
-export function ArtistCardAnimated({ 
-  name, 
-  avatar, 
-  bio, 
-  followers, 
-  totalSales, 
-  artworkCount, 
+export function ArtistCardAnimated({
+  name,
+  avatar,
+  bio,
+  followers,
+  totalSales,
+  artworkCount,
   isFollowing = false,
-  verified = true
+  verified = true,
 }: ArtistCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const avatarRef = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ export function ArtistCardAnimated({
           y: -6,
           scale: 1.02,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       }
 
@@ -51,7 +51,7 @@ export function ArtistCardAnimated({
           scale: 1.1,
           rotation: 2,
           duration: 0.4,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       }
 
@@ -60,7 +60,7 @@ export function ArtistCardAnimated({
           y: -3,
           duration: 0.3,
           stagger: 0.05,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       }
     };
@@ -71,7 +71,7 @@ export function ArtistCardAnimated({
           y: 0,
           scale: 1,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       }
 
@@ -80,7 +80,7 @@ export function ArtistCardAnimated({
           scale: 1,
           rotation: 0,
           duration: 0.4,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       }
 
@@ -89,22 +89,22 @@ export function ArtistCardAnimated({
           y: 0,
           duration: 0.3,
           stagger: 0.05,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       }
     };
 
-    card.addEventListener('mouseenter', handleMouseEnter);
-    card.addEventListener('mouseleave', handleMouseLeave);
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      card.removeEventListener('mouseenter', handleMouseEnter);
-      card.removeEventListener('mouseleave', handleMouseLeave);
+      card.removeEventListener("mouseenter", handleMouseEnter);
+      card.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className="bg-card rounded-xl border border-border p-6 hover:border-neon/30 transition-colors duration-300 cursor-pointer"
     >
@@ -112,8 +112,8 @@ export function ArtistCardAnimated({
       <div className="flex items-start space-x-4 mb-4">
         <div ref={avatarRef} className="relative">
           <div className="w-16 h-16 rounded-full overflow-hidden bg-muted flex-shrink-0 ring-2 ring-transparent hover:ring-neon/50 transition-all duration-300">
-            <img 
-              src={avatar} 
+            <img
+              src={avatar}
               alt={name}
               className="w-full h-full object-cover"
             />
@@ -129,7 +129,9 @@ export function ArtistCardAnimated({
             <span>{name}</span>
             {verified && <CheckCircle className="w-4 h-4 text-neon" />}
           </h3>
-          <p className="text-sm text-muted-foreground line-clamp-2 mt-1">{bio}</p>
+          <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
+            {bio}
+          </p>
         </div>
       </div>
 
@@ -139,7 +141,9 @@ export function ArtistCardAnimated({
           <div className="flex items-center justify-center mb-1">
             <Users className="w-4 h-4 text-muted-foreground" />
           </div>
-          <div className="text-sm font-bold text-foreground">{followers.toLocaleString()}</div>
+          <div className="text-sm font-bold text-foreground">
+            {followers.toLocaleString()}
+          </div>
           <div className="text-xs text-muted-foreground">Followers</div>
         </div>
         <div className="text-center">
@@ -150,26 +154,35 @@ export function ArtistCardAnimated({
           <div className="text-xs text-muted-foreground">Sales</div>
         </div>
         <div className="text-center">
-          <div className="text-sm font-bold text-foreground">{artworkCount}</div>
+          <div className="text-sm font-bold text-foreground">
+            {artworkCount}
+          </div>
           <div className="text-xs text-muted-foreground">Artworks</div>
         </div>
       </div>
 
       {/* Action buttons */}
       <div className="flex space-x-2">
-        <Button 
-          variant={isFollowing ? "secondary" : "default"} 
-          size="sm" 
+        <Button
+          variant={isFollowing ? "secondary" : "default"}
+          size="sm"
           className={`flex-1 transition-all duration-300 ${
-            isFollowing 
-              ? "bg-neon/20 text-neon hover:bg-neon/30" 
+            isFollowing
+              ? "bg-neon/20 text-neon hover:bg-neon/30"
               : "bg-neon text-black hover:bg-neon/90"
           }`}
         >
           {isFollowing ? "Following" : "Follow"}
         </Button>
-        <Button variant="outline" size="sm" className="flex-1 border-neon/50 hover:border-neon hover:bg-neon/10" asChild>
-          <Link to={`/artist/${name.toLowerCase().replace(/\s+/g, '')}`}>View Profile</Link>
+        <Button
+          variant="outline"
+          size="sm"
+          className="flex-1 border-neon/50 hover:border-neon hover:bg-neon/10"
+          asChild
+        >
+          <Link to={`/artist/${name.toLowerCase().replace(/\s+/g, "")}`}>
+            View Profile
+          </Link>
         </Button>
       </div>
     </div>

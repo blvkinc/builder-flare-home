@@ -1,8 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Search, User, ShoppingBag, LogOut, Settings, Palette } from "lucide-react";
+import {
+  Search,
+  User,
+  ShoppingBag,
+  LogOut,
+  Settings,
+  Palette,
+} from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
 
 export function Navigation() {
@@ -40,7 +53,9 @@ export function Navigation() {
             <Link
               to="/explore"
               className={`text-sm font-medium transition-colors hover:text-foreground ${
-                isActive("/explore") ? "text-foreground" : "text-muted-foreground"
+                isActive("/explore")
+                  ? "text-foreground"
+                  : "text-muted-foreground"
               }`}
             >
               Explore
@@ -48,7 +63,9 @@ export function Navigation() {
             <Link
               to="/artists"
               className={`text-sm font-medium transition-colors hover:text-foreground ${
-                isActive("/artists") ? "text-foreground" : "text-muted-foreground"
+                isActive("/artists")
+                  ? "text-foreground"
+                  : "text-muted-foreground"
               }`}
             >
               Artists
@@ -57,7 +74,9 @@ export function Navigation() {
               <Link
                 to="/dashboard"
                 className={`text-sm font-medium transition-colors hover:text-foreground ${
-                  isActive("/dashboard") ? "text-foreground" : "text-muted-foreground"
+                  isActive("/dashboard")
+                    ? "text-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 Dashboard
@@ -87,7 +106,10 @@ export function Navigation() {
                 {/* User Menu */}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Button
+                      variant="ghost"
+                      className="relative h-8 w-8 rounded-full"
+                    >
                       <Avatar className="h-8 w-8">
                         <AvatarImage src={user?.avatar} alt={user?.name} />
                         <AvatarFallback>{user?.name?.charAt(0)}</AvatarFallback>
@@ -127,7 +149,12 @@ export function Navigation() {
                 </DropdownMenu>
               </>
             ) : (
-              <Button asChild variant="default" size="sm" className="bg-primary hover:bg-primary/90">
+              <Button
+                asChild
+                variant="default"
+                size="sm"
+                className="bg-primary hover:bg-primary/90"
+              >
                 <Link to="/auth">Join Avt</Link>
               </Button>
             )}

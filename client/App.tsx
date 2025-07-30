@@ -27,16 +27,16 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/artists" element={<Artists />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/artist/:username" element={<ArtistProfile />} />
-          <Route path="/artwork/:id" element={<ArtworkDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/artists" element={<Artists />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/verification" element={<Verification />} />
+            <Route path="/artist/:username" element={<ArtistProfile />} />
+            <Route path="/artwork/:id" element={<ArtworkDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </UserProvider>
