@@ -219,8 +219,8 @@ export default function Index() {
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted"
         style={{
-          backgroundImage: `radial-gradient(circle at 30% 20%, rgba(120, 255, 120, 0.1) 0%, transparent 50%),
-                           radial-gradient(circle at 70% 80%, rgba(120, 255, 120, 0.05) 0%, transparent 50%)`
+          backgroundImage: `radial-gradient(circle at 30% 20%, rgba(64, 200, 224, 0.1) 0%, transparent 50%),
+                           radial-gradient(circle at 70% 80%, rgba(64, 200, 224, 0.05) 0%, transparent 50%)`
         }}
       >
         {/* Animated Background Elements */}

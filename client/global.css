@@ -92,7 +92,7 @@
 
   .animate-hover:hover {
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 10px 25px -5px rgba(120, 255, 120, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(64, 200, 224, 0.1);
   }
 
   /* Smooth focus states */
@@ -177,7 +177,7 @@
 
   /* Loading states */
   .loading-shimmer {
-    background: linear-gradient(90deg, transparent, rgba(120, 255, 120, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(64, 200, 224, 0.1), transparent);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
