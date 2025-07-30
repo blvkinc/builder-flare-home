@@ -39,25 +39,30 @@ export function NavigationAnimated() {
 
     // Logo hover animation
     const handleLogoHover = () => {
-      gsap.to(logo.querySelector('.logo-icon'), {
-        rotation: 360,
-        duration: 0.6,
-        ease: "power2.out"
-      });
-      
-      gsap.to(logo.querySelector('.logo-text'), {
-        color: "hsl(var(--neon))",
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      const logoIcon = logo.querySelector('.logo-icon');
+      const logoText = logo.querySelector('.logo-text');
+
+      if (logoIcon) {
+        gsap.to(logoIcon, {
+          rotation: 360,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
+
+      if (logoText) {
+        logoText.classList.add('text-neon');
+        logoText.classList.remove('text-foreground');
+      }
     };
 
     const handleLogoLeave = () => {
-      gsap.to(logo.querySelector('.logo-text'), {
-        color: "hsl(var(--foreground))",
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      const logoText = logo.querySelector('.logo-text');
+
+      if (logoText) {
+        logoText.classList.remove('text-neon');
+        logoText.classList.add('text-foreground');
+      }
     };
 
     logo.addEventListener('mouseenter', handleLogoHover);
