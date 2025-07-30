@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Layout } from "@/components/Layout";
-import { ArtworkCard } from "@/components/ArtworkCard";
-import { ArtistCard } from "@/components/ArtistCard";
+import { ArtworkCardAnimated } from "@/components/ArtworkCardAnimated";
+import { ArtistCardAnimated } from "@/components/ArtistCardAnimated";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Shield, DollarSign, Users, Zap, Brush, Eye, Heart, Sparkles, Ban } from "lucide-react";
@@ -387,7 +387,7 @@ export default function Index() {
           >
             {featuredArtworks.map((artwork) => (
               <div key={artwork.id} className="group">
-                <ArtworkCard {...artwork} />
+                <ArtworkCardAnimated {...artwork} />
               </div>
             ))}
           </div>
@@ -423,7 +423,7 @@ export default function Index() {
           >
             {topArtists.map((artist, index) => (
               <div key={index} className="group">
-                <ArtistCard {...artist} />
+                <ArtistCardAnimated {...artist} verified={true} />
               </div>
             ))}
           </div>
