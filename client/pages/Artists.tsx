@@ -1,9 +1,10 @@
 import { Layout } from "@/components/Layout";
 import { ArtistCard } from "@/components/ArtistCard";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search } from "lucide-react";
+import { Search, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 const featuredArtists = [
@@ -90,9 +91,15 @@ export default function Artists() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-4">Featured Artists</h1>
+            <div className="flex items-center space-x-3 mb-4">
+              <Badge variant="outline" className="border-neon/50 text-neon">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                Verified Human Artists
+              </Badge>
+            </div>
+            <h1 className="text-3xl font-bold text-foreground mb-4">Featured Human Artists</h1>
             <p className="text-muted-foreground text-lg">
-              Discover and follow the most talented digital artists on Avt
+              Discover and follow verified human digital artists on Avt. Each creator is personally verified to ensure authentic human creativity.
             </p>
           </div>
 

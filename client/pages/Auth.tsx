@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Loader2, Mail, Lock, User, Palette, ShoppingBag } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Loader2, Mail, Lock, User, Palette, ShoppingBag, Ban } from "lucide-react";
 import { useUser, UserRole } from "@/contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
@@ -119,6 +120,12 @@ export default function Auth() {
             <p className="mt-2 text-muted-foreground">
               Sign in to your account or create a new one
             </p>
+            <div className="mt-4">
+              <Badge variant="outline" className="border-neon/50 text-neon">
+                <Ban className="w-3 h-3 mr-1" />
+                100% Human Artists Only
+              </Badge>
+            </div>
           </div>
 
           {/* Auth Card */}

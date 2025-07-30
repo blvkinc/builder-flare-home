@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Search, Filter, Grid3X3, List, SlidersHorizontal } from "lucide-react";
+import { Search, Filter, Grid3X3, List, SlidersHorizontal, Ban } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -145,9 +145,15 @@ export default function Explore() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-4">Explore Digital Art</h1>
+            <div className="flex items-center space-x-3 mb-4">
+              <Badge variant="outline" className="border-neon/50 text-neon">
+                <Ban className="w-4 h-4 mr-2" />
+                100% Human Art
+              </Badge>
+            </div>
+            <h1 className="text-3xl font-bold text-foreground mb-4">Explore Human Digital Art</h1>
             <p className="text-muted-foreground text-lg">
-              Discover unique digital artworks from talented creators around the world
+              Discover unique digital artworks from verified human creators. Every piece is authentic and AI-free.
             </p>
           </div>
 
