@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Users, ShoppingBag } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ArtistCardProps {
   name: string;
@@ -68,8 +69,8 @@ export function ArtistCard({
         >
           {isFollowing ? "Following" : "Follow"}
         </Button>
-        <Button variant="outline" size="sm" className="flex-1">
-          View Profile
+        <Button variant="outline" size="sm" className="flex-1" asChild>
+          <Link to={`/artist/${name.toLowerCase().replace(/\s+/g, '')}`}>View Profile</Link>
         </Button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Heart, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface ArtworkCardProps {
   id: string;
@@ -51,8 +52,8 @@ export function ArtworkCard({
             >
               <Heart className={`w-4 h-4 ${liked ? 'fill-red-500 text-red-500' : ''}`} />
             </Button>
-            <Button variant="default" size="sm">
-              View Details
+            <Button variant="default" size="sm" asChild>
+              <Link to={`/artwork/${id}`}>View Details</Link>
             </Button>
           </div>
         </div>
@@ -74,7 +75,9 @@ export function ArtworkCard({
       <div className="p-4 space-y-2">
         <div className="space-y-1">
           <h3 className="font-medium text-foreground line-clamp-1">{title}</h3>
-          <p className="text-sm text-muted-foreground">by {artist}</p>
+          <p className="text-sm text-muted-foreground">
+            by <Link to={`/artist/${artist.toLowerCase().replace(/\s+/g, '')}`} className="hover:text-foreground transition-colors">{artist}</Link>
+          </p>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-lg font-semibold text-foreground">${price}</span>
