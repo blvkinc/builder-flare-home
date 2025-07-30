@@ -10,8 +10,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Upload, DollarSign, Eye, Heart, TrendingUp, Users, Plus, BarChart3, Calendar } from "lucide-react";
+import { Upload, DollarSign, Eye, Heart, TrendingUp, Users, Plus, BarChart3, Calendar, Clock } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { Link } from "react-router-dom";
 
 // Mock data
 const salesData = [
@@ -146,6 +147,17 @@ export function ArtistDashboard() {
               <p className="text-muted-foreground mt-2">
                 Manage your artworks, track sales, and grow your audience
               </p>
+              <div className="flex items-center space-x-2 mt-3">
+                <Badge variant="outline" className="border-neon/50 text-neon">
+                  <Clock className="w-3 h-3 mr-1" />
+                  2 artworks in verification
+                </Badge>
+                <Button variant="ghost" size="sm" asChild>
+                  <Link to="/verification" className="text-neon hover:text-neon/80">
+                    View Status →
+                  </Link>
+                </Button>
+              </div>
             </div>
             <Dialog open={isUploadOpen} onOpenChange={setIsUploadOpen}>
               <DialogTrigger asChild>
