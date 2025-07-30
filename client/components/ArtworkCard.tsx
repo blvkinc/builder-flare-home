@@ -14,14 +14,15 @@ interface ArtworkCardProps {
   isLiked?: boolean;
 }
 
-export function ArtworkCard({ 
-  title, 
-  artist, 
-  price, 
-  imageUrl, 
-  likes = 0, 
-  views = 0, 
-  isLiked = false 
+export function ArtworkCard({
+  id,
+  title,
+  artist,
+  price,
+  imageUrl,
+  likes = 0,
+  views = 0,
+  isLiked = false
 }: ArtworkCardProps) {
   const [liked, setLiked] = useState(isLiked);
   const [likeCount, setLikeCount] = useState(likes);
