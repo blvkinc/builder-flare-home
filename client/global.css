@@ -213,11 +213,13 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--neon));
+    box-shadow: 0 0 10px hsl(var(--neon) / 0.3);
   }
 
   /* Selection styling */
   ::selection {
-    background: hsl(var(--neon) / 0.2);
+    background: hsl(var(--neon) / 0.25);
     color: hsl(var(--foreground));
+    text-shadow: 0 0 8px hsl(var(--neon) / 0.3);
   }
 }
