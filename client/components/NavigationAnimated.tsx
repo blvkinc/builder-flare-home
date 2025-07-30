@@ -154,14 +154,24 @@ export function NavigationAnimated() {
               Artists
             </Link>
             {isAuthenticated && (
-              <Link
-                to="/dashboard"
-                className={`text-sm font-medium transition-all duration-300 hover:text-neon hover:scale-105 ${
-                  isActive("/dashboard") ? "text-neon" : "text-muted-foreground"
-                }`}
-              >
-                Dashboard
-              </Link>
+              <>
+                <Link
+                  to="/dashboard"
+                  className={`text-sm font-medium transition-all duration-300 hover:text-neon hover:scale-105 ${
+                    isActive("/dashboard") ? "text-neon" : "text-muted-foreground"
+                  }`}
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  to="/verification"
+                  className={`text-sm font-medium transition-all duration-300 hover:text-neon hover:scale-105 ${
+                    isActive("/verification") ? "text-neon" : "text-muted-foreground"
+                  }`}
+                >
+                  Verification
+                </Link>
+              </>
             )}
           </div>
 

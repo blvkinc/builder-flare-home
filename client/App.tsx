@@ -12,6 +12,7 @@ import Explore from "./pages/Explore";
 import Artists from "./pages/Artists";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import Verification from "./pages/Verification";
 import ArtistProfile from "./pages/ArtistProfile";
 import ArtworkDetail from "./pages/ArtworkDetail";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/artists" element={<Artists />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/verification" element={<Verification />} />
           <Route path="/artist/:username" element={<ArtistProfile />} />
           <Route path="/artwork/:id" element={<ArtworkDetail />} />
           <Route path="*" element={<NotFound />} />
