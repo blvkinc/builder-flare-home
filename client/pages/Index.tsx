@@ -95,20 +95,28 @@ export default function Index() {
       const tl = gsap.timeline();
       
       // Title animation with typewriter effect
-      tl.fromTo(titleRef.current, 
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
-      )
-      .fromTo(subtitleRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.5"
-      )
-      .fromTo(ctaRef.current?.children,
-        { opacity: 0, y: 30, scale: 0.9 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.2, ease: "back.out(1.7)" },
-        "-=0.3"
-      );
+      if (titleRef.current) {
+        tl.fromTo(titleRef.current,
+          { opacity: 0, y: 100 },
+          { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
+        );
+      }
+
+      if (subtitleRef.current) {
+        tl.fromTo(subtitleRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+          "-=0.5"
+        );
+      }
+
+      if (ctaRef.current?.children) {
+        tl.fromTo(ctaRef.current.children,
+          { opacity: 0, y: 30, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.2, ease: "back.out(1.7)" },
+          "-=0.3"
+        );
+      }
 
       // Floating elements animation
       floatingElementsRef.current.forEach((element, index) => {
@@ -127,69 +135,77 @@ export default function Index() {
       });
 
       // Scroll-triggered animations
-      gsap.fromTo(featuresRef.current?.children,
-        { opacity: 0, y: 80, scale: 0.8 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: featuresRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
+      if (featuresRef.current?.children) {
+        gsap.fromTo(featuresRef.current.children,
+          { opacity: 0, y: 80, scale: 0.8 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: featuresRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse"
+            }
           }
-        }
-      );
+        );
+      }
 
-      gsap.fromTo(artworksRef.current?.children,
-        { opacity: 0, y: 60, rotationY: 45 },
-        {
-          opacity: 1,
-          y: 0,
-          rotationY: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: artworksRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+      if (artworksRef.current?.children) {
+        gsap.fromTo(artworksRef.current.children,
+          { opacity: 0, y: 60, rotationY: 45 },
+          {
+            opacity: 1,
+            y: 0,
+            rotationY: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: artworksRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
           }
-        }
-      );
+        );
+      }
 
-      gsap.fromTo(artistsRef.current?.children,
-        { opacity: 0, x: -100, rotation: -5 },
-        {
-          opacity: 1,
-          x: 0,
-          rotation: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: artistsRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+      if (artistsRef.current?.children) {
+        gsap.fromTo(artistsRef.current.children,
+          { opacity: 0, x: -100, rotation: -5 },
+          {
+            opacity: 1,
+            x: 0,
+            rotation: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: artistsRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
           }
-        }
-      );
+        );
+      }
 
       // Parallax effect for hero background
-      gsap.to(heroRef.current, {
-        backgroundPosition: "50% 100%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      });
+      if (heroRef.current) {
+        gsap.to(heroRef.current, {
+          backgroundPosition: "50% 100%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      }
 
     });
 
