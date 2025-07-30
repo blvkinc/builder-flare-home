@@ -12,6 +12,8 @@ import Explore from "./pages/Explore";
 import Artists from "./pages/Artists";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import ArtistProfile from "./pages/ArtistProfile";
+import ArtworkDetail from "./pages/ArtworkDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,13 +26,15 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/artists" element={<Artists />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/artists" element={<Artists />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/artist/:username" element={<ArtistProfile />} />
+          <Route path="/artwork/:id" element={<ArtworkDetail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </UserProvider>
