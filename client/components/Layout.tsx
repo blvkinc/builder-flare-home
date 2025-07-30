@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Navigation } from "./Navigation";
+import { NavigationAnimated } from "./NavigationAnimated";
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navigation />
+      <NavigationAnimated />
       <main className="pt-16">
         {children}
       </main>
